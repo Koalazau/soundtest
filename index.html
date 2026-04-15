@@ -1,5 +1,13 @@
-<!DOCTYPE html>
-  <html><body style="background:#0a0a14;color:#e0e0e0;font-family:sans-serif;text-align:center;padding:40px;">
-  <h1 style="color:#ffd84a;">Sound Test</h1>
-  <div id="status">Page loaded OK</div>
+<!DOCTYPE html>                                                                                                         
+<html><body style="background:#0a0a14;color:#e0e0e0;font-family:sans-serif;text-align:center;padding:40px;">
+  <h1 style="color:#ffd84a;">Sound Test</h1>                                                                              
+  <audio id="snd" src="beep.mp3" autoplay></audio>
+  <div id="status">Page loaded - audio tag present</div>
+  <script>
+      const snd = document.getElementById('snd');
+      const status = document.getElementById('status');
+      snd.play()
+          .then(() => { status.textContent = 'AUTOPLAY SUCCESS'; })
+          .catch(e => { status.textContent = 'AUTOPLAY BLOCKED: ' + e.message; });
+  </script>
   </body></html>
